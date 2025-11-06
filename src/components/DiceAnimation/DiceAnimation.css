@@ -1,0 +1,379 @@
+/* Monopoly Color Palette */
+:root {
+  --monopoly-red: #E40B2E;
+  --monopoly-green: #00A550;
+  --monopoly-gold: #FFD700;
+  --monopoly-blue: #0066CC;
+  --dice-bg: #FFFFFF;
+  --dice-shadow: rgba(0, 0, 0, 0.3);
+  --stage-bg: #F0F8FF;
+}
+
+/* Main Container */
+.dice-animation-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--stage-bg) 0%, #E8F5E9 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dice Stage */
+.dice-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  min-height: 300px;
+  padding: 2rem;
+  perspective: 1000px;
+}
+
+/* Individual Dice */
+.dice {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+/* Dice Face Container */
+.dice-face {
+  width: 100%;
+  height: 100%;
+  background: var(--dice-bg);
+  border: 4px solid var(--monopoly-blue);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow:
+    0 8px 20px var(--dice-shadow),
+    inset 0 2px 4px rgba(255, 255, 255, 0.6);
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+/* 3D Dice Face with Dots */
+.dice-face-3d {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: white;
+  border-radius: 12px;
+  box-shadow:
+    inset -3px -3px 8px rgba(0, 0, 0, 0.2),
+    inset 3px 3px 8px rgba(255, 255, 255, 0.9),
+    3px 3px 10px rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  padding: 8px;
+}
+
+.dice-dot {
+  width: 16px;
+  height: 16px;
+  background: #333;
+  border-radius: 50%;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dice.settled .dice-dot {
+  background: var(--monopoly-red);
+  box-shadow: 2px 2px 4px rgba(228, 11, 46, 0.5);
+}
+
+/* Dot positions */
+.dice-dot.center {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.dice-dot.top-left {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.dice-dot.top-right {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.dice-dot.middle-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dice-dot.middle-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dice-dot.bottom-left {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.dice-dot.bottom-right {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.dice-icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.dice-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--monopoly-green);
+  text-align: center;
+}
+
+/* Speed Die Styling */
+.speed-die .dice-face {
+  background: linear-gradient(145deg, #FFF8DC 0%, #FFE4B5 100%);
+  border-color: var(--monopoly-gold);
+}
+
+.speed-icon {
+  font-size: 3.5rem;
+}
+
+/* Rolling Animation - Tumbling Effect */
+@keyframes tumble {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg) translateY(0px);
+  }
+  10% {
+    transform: rotate3d(1, 1, 0, 90deg) translateY(-20px);
+  }
+  20% {
+    transform: rotate3d(0, 1, 1, 180deg) translateY(-30px);
+  }
+  30% {
+    transform: rotate3d(1, 0, 1, 270deg) translateY(-20px);
+  }
+  40% {
+    transform: rotate3d(1, 1, 1, 360deg) translateY(-10px);
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 450deg) translateY(-30px);
+  }
+  60% {
+    transform: rotate3d(1, 0, 0, 540deg) translateY(-20px);
+  }
+  70% {
+    transform: rotate3d(1, 1, 1, 630deg) translateY(-10px);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, 720deg) translateY(-5px);
+  }
+  90% {
+    transform: rotate3d(1, 1, 0, 810deg) translateY(0px);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 900deg) translateY(0px);
+  }
+}
+
+/* Rolling State */
+.dice.rolling {
+  animation: tumble 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.dice.tumbling {
+  filter: blur(2px);
+}
+
+/* Landing/Settling Animation */
+@keyframes settle {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  30% {
+    transform: scale(1.1) translateY(-10px);
+  }
+  50% {
+    transform: scale(0.95) translateY(5px);
+  }
+  70% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.dice.settled {
+  animation: settle 0.6s ease-out forwards;
+  filter: blur(0);
+  box-shadow: 0 12px 30px rgba(0, 165, 80, 0.3);
+}
+
+.dice.settled .dice-face {
+  box-shadow:
+    0 12px 30px var(--dice-shadow),
+    0 0 20px var(--monopoly-gold),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Glow Effect on Settled Dice */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--monopoly-gold);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--monopoly-gold), 0 0 40px var(--monopoly-gold);
+  }
+}
+
+.dice.settled::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 20px;
+  animation: glow 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* Result Summary */
+.result-summary {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--monopoly-gold) 0%, #FFA500 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+}
+
+.result-text strong {
+  color: var(--monopoly-red);
+  font-size: 2rem;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .dice-stage {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .dice {
+    width: 100px;
+    height: 100px;
+  }
+
+  .dice-icon {
+    font-size: 3rem;
+  }
+
+  .dice-number {
+    font-size: 1.2rem;
+  }
+
+  .speed-icon {
+    font-size: 2.8rem;
+  }
+
+  .dice-label {
+    font-size: 0.9rem;
+  }
+
+  .result-text {
+    font-size: 1.4rem;
+  }
+
+  .result-text strong {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dice-stage {
+    gap: 2.5rem;
+  }
+
+  .dice {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .dice.rolling {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .dice.settled {
+    animation: none;
+    opacity: 1;
+  }
+
+  .dice.settled::after {
+    animation: none;
+  }
+
+  .result-summary {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .dice-face {
+    border-width: 5px;
+  }
+
+  .dice.settled .dice-face {
+    border-width: 6px;
+  }
+}

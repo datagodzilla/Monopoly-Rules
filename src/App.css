@@ -1,0 +1,103 @@
+/* App Container */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F0F8FF 0%, #E8F5E9 100%);
+  padding: 2rem;
+}
+
+/* Results Phase */
+.results-phase {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.results-summary {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.results-summary h2 {
+  font-size: 3rem;
+  color: #E40B2E;
+  margin-bottom: 1.5rem;
+  font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+}
+
+.results-summary p {
+  font-size: 1.8rem;
+  color: #333;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.results-summary strong {
+  color: #00A550;
+  font-weight: 800;
+  font-size: 2rem;
+  margin: 0 0.3rem;
+}
+
+.placeholder-text {
+  color: #666;
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 1.3rem !important;
+}
+
+/* Try Again Button */
+.try-again-button {
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #0066CC 0%, #0080FF 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.try-again-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 102, 204, 0.4);
+  background: linear-gradient(135deg, #0080FF 0%, #0066CC 100%);
+}
+
+.try-again-button:active {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .App {
+    padding: 1rem;
+  }
+
+  .results-summary h2 {
+    font-size: 2rem;
+  }
+
+  .results-summary p {
+    font-size: 1.4rem;
+  }
+
+  .results-summary strong {
+    font-size: 1.6rem;
+  }
+
+  .try-again-button {
+    font-size: 1.5rem;
+    padding: 1.2rem 2rem;
+    width: 100%;
+  }
+}

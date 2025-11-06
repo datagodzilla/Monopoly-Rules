@@ -1,0 +1,304 @@
+/* Monopoly Colors */
+:root {
+  --monopoly-red: #E40B2E;
+  --monopoly-green: #00A550;
+  --monopoly-gold: #FFD700;
+  --monopoly-blue: #0066CC;
+  --rule-bg: #E3F2FD;
+  --tip-bg: #FFF9C4;
+}
+
+/* Main Container */
+.rules-display {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Category Header */
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 4px solid var(--monopoly-green);
+}
+
+.category-icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.category-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--monopoly-red);
+  margin: 0;
+  font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Total Display */
+.total-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--monopoly-green) 0%, #00CC66 100%);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 165, 80, 0.3);
+}
+
+.total-label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.total-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.total-suffix {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Doubles Indicator */
+.doubles-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--monopoly-gold) 0%, #FFA500 100%);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.doubles-icon {
+  font-size: 2.5rem;
+}
+
+.doubles-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Rule Section */
+.rule-section {
+  background: var(--rule-bg);
+  border-left: 6px solid var(--monopoly-blue);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--monopoly-blue);
+  margin: 0 0 1rem 0;
+  font-family: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+}
+
+.rule-text {
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Speed Die Details Section */
+.speed-die-details {
+  background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+  border-left: 6px solid var(--monopoly-green);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 165, 80, 0.15);
+}
+
+.speed-die-title {
+  color: var(--monopoly-green);
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.speed-die-rules-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.speed-die-rule-item {
+  font-size: 1.35rem;
+  color: #2E7D32;
+  line-height: 2;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.speed-die-rule-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Tip Section */
+.tip-section {
+  background: var(--tip-bg);
+  border-left: 6px solid var(--monopoly-gold);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+}
+
+.tip-section .section-title {
+  color: #F57C00;
+}
+
+.tip-text {
+  font-size: 1.4rem;
+  color: #555;
+  line-height: 1.8;
+  margin: 0;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .rules-display {
+    padding: 1.5rem;
+  }
+
+  .category-icon {
+    font-size: 3rem;
+  }
+
+  .category-title {
+    font-size: 1.8rem;
+  }
+
+  .total-label,
+  .total-suffix {
+    font-size: 1.1rem;
+  }
+
+  .total-number {
+    font-size: 2.5rem;
+  }
+
+  .doubles-text {
+    font-size: 1.4rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .rule-text {
+    font-size: 1.2rem;
+  }
+
+  .tip-text {
+    font-size: 1.1rem;
+  }
+
+  .speed-die-title {
+    font-size: 1.4rem;
+  }
+
+  .speed-die-rule-item {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .rule-section,
+  .tip-section,
+  .speed-die-details {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .category-title {
+    font-size: 2.2rem;
+  }
+
+  .total-number {
+    font-size: 2.8rem;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .rule-section,
+  .tip-section {
+    border-left-width: 8px;
+  }
+
+  .rule-text,
+  .tip-text {
+    font-weight: 700;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .rules-display {
+    animation: none;
+  }
+
+  .doubles-indicator {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .rules-display {
+    box-shadow: none;
+    border: 2px solid #000;
+  }
+
+  .doubles-indicator {
+    animation: none;
+  }
+}

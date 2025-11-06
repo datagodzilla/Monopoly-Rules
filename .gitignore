@@ -59,8 +59,11 @@ logs/
 # Testing
 .coverage
 htmlcov/
+coverage/
 .pytest_cache/
 .tox/
+test-results/
+playwright-report/
 
 # Documentation builds
 docs/_build/
