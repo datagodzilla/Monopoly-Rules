@@ -2,7 +2,7 @@
 
 Display rules and moves for the Mega Monopoly board game based on dice rolls.
 
-**🌐 Live Demo**: https://datagodzilla.github.io/MONOPOLY_GAME_APP/
+**🌐 Live Demo**: https://datagodzilla.github.io/Monopoly-Rules/
 
 **Stack**: React + Flask
 **Theme**: Playful, Minimalist, Colorful
@@ -48,8 +48,8 @@ This project includes **agent-ai** capabilities for AI-assisted development usin
 
 ```bash
 # Clone the repository
-git clone https://github.com/datagodzilla/MONOPOLY_GAME_APP.git
-cd MONOPOLY_GAME_APP
+git clone https://github.com/datagodzilla/Monopoly-Rules.git
+cd Monopoly-Rules
 code .
 ```
 

@@ -1,6 +1,6 @@
 # Agent Workflow Guide
 
-**Project**: MONOPOLY_GAME_APP
+**Project**: Monopoly-Rules
 **Workspace**: [PROJECT_ROOT]
 **Created**: 2025-11-05T00:00:00Z
 
