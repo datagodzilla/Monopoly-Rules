@@ -43,11 +43,16 @@ function App() {
       setMovementResult(null);
     }
 
+    // Scroll to top when transitioning to animation phase
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     setCurrentPhase('animation');
   };
 
   const handleAnimationComplete = () => {
     console.log('Animation complete');
+    // Scroll to top when transitioning to results phase
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setCurrentPhase('results');
   };
 
@@ -55,6 +60,8 @@ function App() {
     setDiceValues(null);
     setGameRule(null);
     setMovementResult(null);
+    // Scroll to top when returning to input phase
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setCurrentPhase('input');
   };
 
